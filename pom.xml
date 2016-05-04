@@ -12,6 +12,8 @@
 		<module>base</module>
 		<module>build</module>
 		<module>math</module>
+		<module>math00</module>
+		<module>math01</module>
 	</modules>
 
 	<dependencies>
