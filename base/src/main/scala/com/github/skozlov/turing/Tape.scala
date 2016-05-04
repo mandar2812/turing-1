@@ -10,7 +10,7 @@ import Tape._
 
 class Tape(initData: CellState*) extends Equals{
 	private val _cells: ArrayBuffer[CellState] = {
-		val size: Int = Math.max(1, _cells.lastIndexOf(One))
+		val size: Int = Math.max(1, initData.lastIndexOf(One) + 1)
 		ArrayBuffer(initData take size :_*)
 	}
 

@@ -60,27 +60,39 @@ object ProgramBuilder{
 			command.movement = movement
 			command
 		}
+
+		val c = this
 	}
 
 	object Command{
-		implicit class Builder(nextStateId: StateId){
-			private val createCommand: (Option[CellState], Option[Direction]) => Command = Command(_, _, nextStateId)
-			
-			def ::(cellNewState: CellState, ignored: Unit = ()): Command = createCommand(Some(cellNewState), None)
+		trait Incomplete{
+			val c: this.type = this
 
-			def ::(movement: Direction): Command = createCommand(None, Some(movement))
+			def ~(nextStateId: StateId): Command
 		}
 
-		implicit class Full(cellNewState: CellState){
-			private def createCommand(movement: Direction, nextStateId: StateId) =
-				Command(Some(cellNewState), Some(movement), nextStateId)
+		object Incomplete{
+			implicit class Moving(movement: Direction) extends Incomplete {
+				protected val cellNewState: Option[CellState] = None
 
-			val left: StateId => Command = createCommand(Direction.Left, _)
+				override def ~(nextStateId: StateId): Command = Command(cellNewState, Some(movement), nextStateId)
+			}
 
-			val right: StateId => Command = createCommand(Direction.Right, _)
+			implicit class Modifying(cellNewState: CellState) extends Incomplete {
+				override def ~(nextStateId: StateId): Command = Command(Some(cellNewState), None, nextStateId)
 
-			val L: StateId => Command = left
-			val R: StateId => Command = right
+				def ~(movement: Direction): Moving = new Moving(movement){
+					override protected val cellNewState: Option[CellState] = Some(Modifying.this.cellNewState)
+				}
+
+				def left(nextStateId: StateId): Command = this ~ Direction.Left ~ nextStateId
+
+				def right(nextStateId: StateId): Command = this ~ Direction.Right ~ nextStateId
+
+				val L: StateId => Command = left
+
+				val R: StateId => Command = right
+			}
 		}
 	}
 
