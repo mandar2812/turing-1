@@ -1,4 +1,4 @@
-package com.github.skozlov.turing.math01
+package com.github.skozlov.turing.math
 
 import com.github.skozlov.turing.Tape
 import org.scalatest.{Matchers, FlatSpec}
@@ -6,13 +6,20 @@ import com.github.skozlov.turing.build.Dsl._
 
 class IncrementTest extends FlatSpec with Matchers{
 	"Increment" should "return 1 for 0" in {
+		val tape = new Tape("0":_*)
+		tape(Increment)
+		tape.caretIndex shouldBe 0
+		tape.cells shouldBe cellStatesFromString("01")
+	}
+
+	it should "return 2 for 1" in {
 		val tape = new Tape("01":_*)
 		tape(Increment)
 		tape.caretIndex shouldBe 0
 		tape.cells shouldBe cellStatesFromString("011")
 	}
 
-	it should "return 2 for 1" in {
+	it should "return 3 for 2" in {
 		val tape = new Tape("011":_*)
 		tape(Increment)
 		tape.caretIndex shouldBe 0

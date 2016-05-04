@@ -5,7 +5,7 @@ import Direction._
 import CellState._
 import com.github.skozlov.turing.build.Dsl._
 
-package object math01{
+package object math{
 	val Increment: Program = ProgramBuilder(
 		"q1" -> R~"q2",
 		"q2" -> (`1` -> R.c, `0` -> `1`~L~"q3"),

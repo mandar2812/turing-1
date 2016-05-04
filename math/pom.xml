@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>turing-math01</artifactId>
+    <artifactId>turing-math</artifactId>
 
     <dependencies>
         <dependency>
