@@ -13,4 +13,12 @@ package object math01{
 		"q4" -> `0`~L~"q5",
 		"q5" -> (`1` -> L.c, `0` -> "q0".c)
 	).toProgram
+
+	val Sum: Program = ProgramBuilder(
+		"q1" -> (`0` -> R~"q2", `1` -> `0`~L~"q5"),
+		"q2" -> (`1` -> R.c, `0` -> `1`~R~"q3"),
+		"q3" -> (`1` -> R.c, `0` -> L~"q4"),
+		"q4" -> `0`~L~"q1",
+		"q5" -> (`1` -> L.c, `0` -> "q0".c)
+	).toProgram
 }
