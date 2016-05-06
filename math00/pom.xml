@@ -10,6 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>turing-math00</artifactId>
+    <description>Arithmetical programs which are specific for the "n to n" encoding</description>
+    <name>math00</name>
 
     <dependencies>
         <dependency>

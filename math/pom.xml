@@ -10,6 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>turing-math</artifactId>
+    <description>Arithmetical programs working right for both supported encodings of numbers</description>
+    <name>math</name>
 
     <dependencies>
         <dependency>

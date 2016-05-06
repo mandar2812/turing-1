@@ -5,6 +5,10 @@ import com.github.skozlov.turing.State.{NonTerminal, Terminal}
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 
+/**
+ * A program that can be executed on a turing machine.
+ * @param initialState a state of the turing machine when starting the execution of the program.
+ */
 class Program(val initialState: State.NonTerminal) extends Equals{
 	private lazy val states2Indexes: Map[State.NonTerminal, Int] = {
 		val buf = new mutable.HashMap[State.NonTerminal, Int]()
@@ -47,18 +51,37 @@ class Program(val initialState: State.NonTerminal) extends Equals{
 		states map stateToString mkString "\n"
 	}
 
+	/**
+	 * A string representation of the program.
+	 * Each line respects to a state of the program.
+	 * @see [[State.NonTerminal.toString]]
+	 */
 	override lazy val toString: String = states mkString "\n"
 
 	override lazy val hashCode: Int = normalizedString.hashCode
 
+	/**
+	 * @return `true` only if the following conditions are true:
+	 * <br />- `obj` is an instance of [[Program]]
+	 * <br />- {{{obj.asInstanceOf[Program].canEqual(this)}}}
+	 * <br />- `this` and `obj` are semantically equivalent programs,
+	 * i.e. always have equal results for the equal initial data.
+	 * It is not guaranteed for this method to return `true` for two semantically equivalent programs.
+	 */
 	override def equals(obj: scala.Any): Boolean = obj match {
 		case that: Program => (that != null) && (that canEqual this) && (this.normalizedString == that.normalizedString)
 		case _ => false
 	}
 
+	/**
+	 * @return `true` if `that` is an instance of [[Program]], `false` otherwise.
+	 */
 	override def canEqual(that: Any): Boolean = (that != null) && that.isInstanceOf[Program]
 }
 
 object Program{
+	/**
+	 * Creates a program with the given initial state
+	 */
 	def apply(initialState: State.NonTerminal): Program = new Program(initialState)
 }

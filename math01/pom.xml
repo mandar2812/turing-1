@@ -10,6 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>turing-math01</artifactId>
+    <description>Arithmetical programs which are specific for the "n to n+1" encoding</description>
+    <name>math01</name>
 
     <dependencies>
         <dependency>
