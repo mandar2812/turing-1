@@ -15,8 +15,6 @@ At any moment, each cell can contain either `0` or `1`.
 The tape has also a <i>caret</i> pointing at a cell at any moment.
 The cell the caret points at is called "the current cell" in this document.
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Turing_machine_2b.svg/450px-Turing_machine_2b.svg.png)
-
 A <i>program</i> which can be executed on the Turing Machine is a set of <i>states</i>.
 
 A <i>non-terminal state</i> has a unique identifier, or name, and 2 commands,
