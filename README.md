@@ -214,3 +214,9 @@ Module name | Artifact ID | Description | Dependencies
 `math00` | `turing-math00` | Arithmetical programs which are specific for the ["n to n" encoding](https://github.com/skozlov/turing/blob/master/README.md#arithmetical-computations) | `turing-math`
 `math01` | `turing-math01` | Arithmetical programs which are specific for the ["n to n+1" encoding](https://github.com/skozlov/turing/blob/master/README.md#arithmetical-computations) | `turing-math`
 `turing` (root) | `turing` | Combines all other modules of the library
+
+## API documentation
+
+[base](http://skozlov.github.io/turing/scaladoc/base/0.1/)
+
+[build](http://skozlov.github.io/turing/scaladoc/build/0.1/)
