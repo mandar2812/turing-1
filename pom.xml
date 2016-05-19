@@ -7,7 +7,7 @@
 	<groupId>com.github.skozlov</groupId>
 	<artifactId>turing</artifactId>
 	<packaging>pom</packaging>
-	<version>0.1-SNAPSHOT</version>
+	<version>0.1.0</version>
 	<description>A set of Scala libraries providing a Turing Machine emulator,a DSL for creating programs for this emulator, and some predefined programs.</description>
 	<modules>
 		<module>base</module>
