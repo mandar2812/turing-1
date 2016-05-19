@@ -99,12 +99,12 @@ println(tape) // will be ">011"
 
 #### Cell states
 
-A state of the cell is represented by a value of enumeration [CellState](todo): `` `0` `` or `` `1` ``.
+A state of the cell is represented by a value of enumeration [CellState](http://skozlov.github.io/turing/scaladoc/base/0.1/#com.github.skozlov.turing.CellState$): `` `0` `` or `` `1` ``.
 Also, these values has aliases - `Zero` and `One`.
 
 #### Direction
 
-Direction to move the caret is represented by a value of enumeration [Direction](todo): `L` or `R`.
+Direction to move the caret is represented by a value of enumeration [Direction](http://skozlov.github.io/turing/scaladoc/base/0.1/#com.github.skozlov.turing.Direction$): `L` or `R`.
 The value `L` has aliases `Left` and `<=`; the aliases of `R` are `Right` and `->`.
 
 #### Building commands
@@ -140,19 +140,19 @@ val state3 = "q3" -> (`0` -> "q4".c, `1` -> `0`~L) // if the current cell contai
 The tapes provided by this library are left-bounded,
 i.e. the cell being first when creating the tape remains the most left cell during the execution of the program.
 If the caret points at the first cell and the program instructs it to move left,
-[Tape.OutOfBoundsException.Left](todo) will be thrown.
+[Tape.OutOfBoundsException.Left](http://skozlov.github.io/turing/scaladoc/base/0.1/#com.github.skozlov.turing.Tape$$OutOfBoundsException$$Left) will be thrown.
 
-The base tape class - [Tape](todo) - can be extended right infinitely:
+The base tape class - [Tape](http://skozlov.github.io/turing/scaladoc/base/0.1/#com.github.skozlov.turing.Tape) - can be extended right infinitely:
 if the caret points at the most right stored cell and the program instructs it to move right,
 a new cell initialized with `0` will be stored.
 
-Another implementation - [Tape.Finite](todo) - is also right-bounded.
+Another implementation - [Tape.Finite](http://skozlov.github.io/turing/scaladoc/base/0.1/#com.github.skozlov.turing.Tape$$Finite) - is also right-bounded.
 The size of the tape is determined when creating it and cannot be increased.
 If the caret points at the cell with index `(size - 1)` and the program instructs the caret to move right,
-[Tape.OutOfBoundsException.Right](todo) will be thrown.
+[Tape.OutOfBoundsException.Right](http://skozlov.github.io/turing/scaladoc/base/0.1/#com.github.skozlov.turing.Tape$$OutOfBoundsException$$Right) will be thrown.
 
 To prevent the errors leading to the infinite moving the caret right,
-it is recommended to use [Tape.Finite](todo), if you can predict the right boundary.
+it is recommended to use [Tape.Finite](http://skozlov.github.io/turing/scaladoc/base/0.1/#com.github.skozlov.turing.Tape$$Finite), if you can predict the right boundary.
 
 ### Using tapes
 
